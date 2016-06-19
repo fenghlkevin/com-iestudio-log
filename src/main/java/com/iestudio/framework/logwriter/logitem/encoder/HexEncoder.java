@@ -3,10 +3,10 @@ package com.iestudio.framework.logwriter.logitem.encoder;
 
 
 
-import cn.com.cennavi.kfgis.util.SBase64;
 
 import com.iestudio.framework.logwriter.logitem.ILogEncoder;
 import com.iestudio.framework.logwriter.util.MessyCodeCheck;
+import com.kevin.iesutdio.tools.base64.SBase64;
 
 public class HexEncoder implements ILogEncoder {
 

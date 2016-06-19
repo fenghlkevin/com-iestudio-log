@@ -1,6 +1,8 @@
 package com.iestudio.framework.logwriter.appender;
 
 import java.util.List;
+
+import com.kevin.iesutdio.tools.clazz.ObjectUtil;
 import kafka.javaapi.producer.Producer;
 import kafka.producer.KeyedMessage;
 
@@ -10,8 +12,6 @@ import org.apache.commons.pool2.impl.DefaultPooledObject;
 import org.apache.commons.pool2.impl.GenericObjectPool;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.apache.log4j.spi.LoggingEvent;
-
-import cn.com.cennavi.kfgis.util.ObjectUtil;
 
 import com.iestudio.framework.logwriter.appender.absappender.AbstractRunnableAppender;
 import com.iestudio.framework.logwriter.hadoop.KafKa0811ProducerManager;
@@ -57,8 +57,8 @@ public class KafkaAppender0811 extends AbstractRunnableAppender<KeyedMessage<Int
 				@Override
 				protected void addLog(List<KeyedMessage<Integer, byte[]>> logs, LoggingEvent event) {
 					
-					//byte[] bs = ObjectUtil.getObjectBytes(event.getMessage());					
-					 byte[] bs = ObjectUtil.getObjectBytesByTopic(event.getMessage());
+					byte[] bs = ObjectUtil.getObjectBytes(event.getMessage());
+//					 byte[] bs = ObjectUtil.getObjectBytesByTopic(event.getMessage());
 					 System.out.println("topic-----"+topic+";temp-------"+new String(bs));
 					 logs.add(new KeyedMessage<Integer, byte[]>(topic, ZipUtil.gZip(bs)));
 				}

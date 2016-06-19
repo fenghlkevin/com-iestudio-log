@@ -11,8 +11,6 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
-import cn.com.cennavi.kfgis.framework.exception.NServiceInternalException;
-
 public class ZipUtil {
 	/***
 	 * 压缩GZip
@@ -31,7 +29,7 @@ public class ZipUtil {
 			b = bos.toByteArray();
 			bos.close();
 		} catch (Exception ex) {
-			throw new NServiceInternalException("压缩 gizp 数据时异常",ex);
+			throw new RuntimeException("压缩 gizp 数据时异常",ex);
 		}
 		return b;
 	}
@@ -59,7 +57,7 @@ public class ZipUtil {
 			gzip.close();
 			bis.close();
 		} catch (Exception ex) {
-			throw new NServiceInternalException("解压缩 gzip 数据时异常",ex);
+			throw new RuntimeException("解压缩 gzip 数据时异常",ex);
 		}
 		return b;
 	}
@@ -84,7 +82,7 @@ public class ZipUtil {
 			b = bos.toByteArray();
 			bos.close();
 		} catch (Exception ex) {
-			throw new NServiceInternalException("压缩 zip 数据时异常",ex);
+			throw new RuntimeException("压缩 zip 数据时异常",ex);
 		}
 		return b;
 	}
@@ -114,7 +112,7 @@ public class ZipUtil {
 			zip.close();
 			bis.close();
 		} catch (Exception ex) {
-			throw new NServiceInternalException("解压缩 zip 数据时异常",ex);
+			throw new RuntimeException("解压缩 zip 数据时异常",ex);
 		}
 		return b;
 	}
