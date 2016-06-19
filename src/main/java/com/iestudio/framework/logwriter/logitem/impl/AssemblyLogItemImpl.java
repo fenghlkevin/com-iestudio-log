@@ -4,12 +4,12 @@ import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.iestudio.object.ClassUtil;
-import com.iestudio.object.ObjUtil;
 import com.iestudio.framework.logwriter.constants.LogContants;
 import com.iestudio.framework.logwriter.logitem.ILogEncoder;
 import com.iestudio.framework.logwriter.logitem.ILogItemInf;
-import com.iestudio.framework.logwriter.util.Util;
+import com.kevin.iesutdio.tools.clazz.ClassUtil;
+import com.kevin.iesutdio.tools.clazz.ObjUtil;
+import com.kevin.iesutdio.tools.clazz.ObjectUtil;
 
 public abstract class AssemblyLogItemImpl implements ILogItemInf {
 
@@ -44,7 +44,7 @@ public abstract class AssemblyLogItemImpl implements ILogItemInf {
 	}
 
 	public void setItemValue(String itemName, String itemValue) {
-		Method method = Util.getSetMethodByName(this, itemName);
+		Method method = ObjectUtil.getSetMethodByName(this, itemName);
 		if (method == null) {
 			return;
 		}
@@ -60,7 +60,7 @@ public abstract class AssemblyLogItemImpl implements ILogItemInf {
 			return "";
 		}
 		String reValue = itemName;
-		Method method = Util.getGetMethodByName(this, itemName);
+		Method method = ObjectUtil.getMethodByName(this,"get"+itemName,false);//.getGetMethodByName(this, itemName);
 		if (method != null) {
 			Object obj = getMethodValue(method);
 			if (ObjUtil.isEmpty(obj)) {
@@ -90,7 +90,7 @@ public abstract class AssemblyLogItemImpl implements ILogItemInf {
 				} catch (Exception e) {
 					throw new RuntimeException("instance ILogEncoder error. class is [" + clazzName + "]");
 				}
-				method = Util.getGetMethodByName(this, methodName);
+				method =ObjectUtil.getMethodByName(this,"get"+methodName,false); //Util.getGetMethodByName(this, methodName);
 				if(method==null){
 					reValue="";
 				}else{

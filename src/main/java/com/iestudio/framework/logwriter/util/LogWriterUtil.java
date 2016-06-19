@@ -6,8 +6,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import com.iestudio.object.ObjUtil;
 import com.iestudio.framework.logwriter.constants.LogContants;
+import com.kevin.iesutdio.tools.clazz.ObjUtil;
+import com.kevin.iesutdio.tools.clazz.ObjectUtil;
 
 public class LogWriterUtil {
 
@@ -103,8 +104,9 @@ public class LogWriterUtil {
                 return s.format(new Date());
             } else if (this.type.equalsIgnoreCase(LogContants.TYPE_EXT)) {
                 try {
-                    return (String) Util.getGetMethodByName(valueObj,
-                            (String) this.value).invoke(valueObj);
+                    return (String) ObjectUtil.getMethodByName(valueObj,"get"+(String) this.value,false).invoke(valueObj);
+//                    return (String) Util.getGetMethodByName(valueObj,
+//                            (String) this.value).invoke(valueObj);
                 } catch (Exception e) {
                     throw new RuntimeException("FileItem获取真实值，反射时异常", e);
                 }

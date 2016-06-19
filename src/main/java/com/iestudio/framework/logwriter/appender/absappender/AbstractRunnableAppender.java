@@ -15,10 +15,10 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import com.kevin.iesutdio.tools.clazz.ObjUtil;
 import org.apache.log4j.AppenderSkeleton;
 import org.apache.log4j.spi.LoggingEvent;
 
-import com.iestudio.object.ObjUtil;
 import com.iestudio.trigger.CronTrigger;
 import com.iestudio.trigger.InterTrigger;
 
@@ -116,7 +116,7 @@ public abstract class AbstractRunnableAppender<T> extends AppenderSkeleton imple
 					needRoolOver = true;
 				}
 			} else {
-				if (!ObjUtil.isEmpty(trigger) && System.currentTimeMillis() >= getDateLength() + startTime) {//count > 0 && 
+				if (!ObjUtil.isEmpty(trigger) && System.currentTimeMillis() >= getDateLength() + startTime) {//count > 0 &&
 					Calendar c = Calendar.getInstance();
 					c.setTimeInMillis(startTime);
 					needRoolOver = true;

@@ -3,6 +3,7 @@ package com.iestudio.framework.logwriter.appender;
 import java.util.List;
 
 import com.kevin.iesutdio.tools.clazz.ObjectUtil;
+import com.kevin.iesutdio.tools.file.ZipUtil;
 import kafka.javaapi.producer.Producer;
 import kafka.producer.KeyedMessage;
 
@@ -15,7 +16,6 @@ import org.apache.log4j.spi.LoggingEvent;
 
 import com.iestudio.framework.logwriter.appender.absappender.AbstractRunnableAppender;
 import com.iestudio.framework.logwriter.hadoop.KafKa0811ProducerManager;
-import com.iestudio.framework.logwriter.util.ZipUtil;
 
 /**
  * 存入kafka所使用的Appender

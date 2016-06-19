@@ -4,7 +4,7 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
 import com.iestudio.framework.logwriter.hadoop.KafKa072ProducerManager;
-import com.iestudio.object.ObjUtil;
+import com.kevin.iesutdio.tools.clazz.ObjUtil;
 
 public class Kafka072ContextListener implements ServletContextListener {
 

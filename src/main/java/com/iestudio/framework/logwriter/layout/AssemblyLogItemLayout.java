@@ -1,11 +1,11 @@
 package com.iestudio.framework.logwriter.layout;
 
+import com.kevin.iesutdio.tools.clazz.ObjUtil;
 import org.apache.log4j.Layout;
 import org.apache.log4j.spi.LoggingEvent;
 import org.codehaus.jettison.json.JSONObject;
 
 import com.iestudio.framework.logwriter.logitem.ILogItemInf;
-import com.iestudio.object.ObjUtil;
 
 public class AssemblyLogItemLayout extends Layout {
 

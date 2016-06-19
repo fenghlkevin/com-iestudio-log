@@ -2,9 +2,8 @@ package com.iestudio.framework.logwriter.util;
 
 import java.lang.reflect.Field;
 
+import com.kevin.iesutdio.tools.clazz.ObjUtil;
 import org.apache.log4j.Level;
-
-import com.iestudio.object.ObjUtil;
 
 public class LoggerLoaderUtil {
 	
